@@ -93,8 +93,27 @@
             </div>
           
       </section>
-   
+    
       <script src = "scripts.js"></script>
+      <script src = "pdfmake/build/pdfmake.js"></script>
+      <script type="text/javascript" src="pdfmake/build/vfs_fonts.js"></script>
+
+      <script>
+          
+    
+        var dd = {
+        content: [
+            window.sessionStorage.getItem('item3'),
+            window.sessionStorage.getItem('item4')
+        ]
+        
+    }    
+        pdfMake.createPdf(dd).download();
+        
+    
+          </script>
+    
+      
 	
    
     </body>
