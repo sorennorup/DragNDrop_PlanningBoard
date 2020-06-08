@@ -12,9 +12,16 @@
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/$VERSION/dragula.min.js'></script>
         <title>Lav din egen kompetenceprofil</title>
     </head>
-    
+    <script>
+  
+    </script>
     <body>
       <header id = "header"><h1>Lav din egen kompetenceprofil</h1></header>
+      <div id = "saved-text"></div>
+      <div id = "session-storage"></div>
+      <script>
+        document.getElementById('session-storage').innerHTML =  sessionStorage.getItem("item4")+" "+sessionStorage.getItem("item5");
+      </script>
       <section id = "content">
           <div class = "board-wrapper">
               <div id = "done1" class = "board">

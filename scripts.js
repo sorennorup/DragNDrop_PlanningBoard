@@ -16,6 +16,7 @@ $('document').ready(init);
 			// bind the drop event on the board sections
   			$('#done1').bind('drop', function(event) {
             var notecard = event.originalEvent.dataTransfer.getData("text/plain");
+            window.sessionStorage.setItem(notecard,$('#'+notecard).text());
             for(var i = 0; i < itemArray.length; i++){
                if(itemArray[i] == notecard)
                event.target.appendChild(document.getElementById(notecard));
@@ -32,6 +33,7 @@ $('document').ready(init);
 			// bind the drop event on the board sections
   			$('#done2').bind('drop', function(event) {
             var notecard = event.originalEvent.dataTransfer.getData("text/plain");
+            window.sessionStorage.setItem(notecard,$('#'+notecard).text());
             for(var i = 0; i < itemArray.length; i++){
                if(itemArray2[i] == notecard)
                event.target.appendChild(document.getElementById(notecard));
@@ -48,9 +50,14 @@ $('document').ready(init);
 			// bind the drop event on the board sections
   			$('#done3').bind('drop', function(event) {
             var notecard = event.originalEvent.dataTransfer.getData("text/plain");
+            window.sessionStorage.setItem(notecard,$('#'+notecard).text());
+           
             for(var i = 0; i < itemArray.length; i++){
                if(itemArray3[i] == notecard)
                event.target.appendChild(document.getElementById(notecard));
+              
+              
+               
             }
 			// Turn off the default behaviour
 			// without this, FF will try and go to a URL with your id's name
