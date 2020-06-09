@@ -39,6 +39,7 @@ h2 {
 
 .board-wrapper:nth-child(2){
     background-color:#699fc2;
+    height: 500px;
 }
 		
 .board {

@@ -89,35 +89,51 @@
       <script type="text/javascript" src="pdfmake/build/vfs_fonts.js"></script>
 
       <script>
-          document.getElementById('drag1').innerHTML = getData(setData(appdata.block1));
+          
+           
+         
+         let obj = Object.values(appdata.block1)
+         let obj2 = Object.values(appdata);
+         console.log(getDragItems(appdata));
+         
+         for (let key in appdata.block1) {
+         let value = appdata.block1[key];
+         console.log(key, value);
+         console.log(value.value);
+        }
+         
+        document.getElementById('drag1').innerHTML = getData(data.block1,'Kompetencer');
+        document.getElementById('drag2').innerHTML = getData(data.block2,'Viden');
+        document.getElementById('drag3').innerHTML = getData(data.block3,'Færdigheder');
+
+    function getData(arr,title) {
+        let html = title;
+        for (let key in arr) {
+            let value = arr[key];
+            html+= '<div id = "'+value.dragid+'" draggable="true">';
+            html+='<div class = "cardTitle">'+value.value+'</div>';
+            html+= '</div>';
+         }
+            return html;
+        }
         
-                    
-
-          function setData(dataobj){
-              let arr = [[]];
-              var prop = [];
-             let html = dataobj.title;
-             var i = 0;
-                for(x in dataobj) {
-                   prop = [dataobj[x].dragid,dataobj[x].value];
-                   arr.push(prop);
-                }
-                return arr;
-          }
-
-          function getData(arr) {
-              let html = '<div class="title"><h2>Færdigheder</h2></div>';
-              
-              for(i = 1; i< arr.length;i++){
-                  html+= '<div id = "'+arr[i][0]+'" draggable="true">';
-                    html+='<div class = "cardTitle">'+arr[i][1]+'</div>';
-                    html+= '</div>';
-              }
-              return html;
-          }
-          function test(){
-              return "test om det her virker";
-          }
+        function getDragItems(arr){
+            let resstring=" ";
+            for (let key in arr.block1) {
+               let value = arr.block1[key];
+                resstring+=value.dragid+',';    
+            }
+            for (let key2 in arr.block2) {
+               let value2 = arr.block2[key2];
+                resstring+=value2.dragid+',';    
+            }
+            for (let key2 in arr.block3) {
+               let value2 = arr.block3[key2];
+                resstring+=value2.dragid+',';    
+            }
+            
+            return resstring;
+        }
     
         var dd = {
         content: [

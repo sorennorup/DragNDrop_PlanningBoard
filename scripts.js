@@ -1,7 +1,24 @@
 $('document').ready(init);
+function getDragItems(arr){
+    let resstring=" ";
+    for (let key in arr.block1) {
+       let value = arr.block1[key];
+        resstring+=value.dragid+',';    
+    }
+    for (let key2 in arr.block2) {
+       let value2 = arr.block2[key2];
+        resstring+=value2.dragid+',';    
+    }
+    for (let key2 in arr.block3) {
+       let value2 = arr.block3[key2];
+        resstring+=value2.dragid+',';    
+    }
+    
+    return resstring;
+}   
 		
     function init(){
-        var itemArray = ['item1', 'item2','item3'];
+        var itemArray = ['item1', 'item2','item3','item4'];
         var itemArray3 = ['item4', 'item5'];
         var itemArray2 = ['item6', 'item7','item8'];
         var allItems = '#item1, #item2,#item3,#item4,#item5,#item6,#item7,#item8';
@@ -36,5 +53,8 @@ $('document').ready(init);
             $(items).bind('dragstart', function(event) {
                 event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
         });
+        }
+        function getAllItems(obj) {
+
         }
         }
