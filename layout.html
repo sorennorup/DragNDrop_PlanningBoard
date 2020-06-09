@@ -4,7 +4,7 @@
 		
 		<meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css">
-
+        <script type="text/javascript" src="data.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:300,400,400i,500,600,700" rel="stylesheet">
 		<link href='dist/dragula.css' rel='stylesheet' type='text/css' />
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js">
@@ -13,13 +13,16 @@
         <title>Lav din egen kompetenceprofil</title>
     </head>
     <script>
-  
+        var appdata = data;
+       
     </script>
     <body>
       <header id = "header"><h1>Lav din egen kompetenceprofil</h1></header>
       <div id = "saved-text"></div>
       <div id = "session-storage"></div>
+      <div id = "test"></div>
       <script>
+           
         document.getElementById('session-storage').innerHTML =  sessionStorage.getItem("item4")+" "+sessionStorage.getItem("item5");
       </script>
       <section id = "content">
@@ -37,24 +40,11 @@
             
       </div>
             </div>
+
             <div class = "board-wrapper">
+                
                 <div id = "drag1" class = "board drag">
-                    <div class="title"><h2>Kompetencer</h2></div>
-        <div id="item1" draggable="true">
-            <div class="cardTitle">
-				Opsøge unge, målgruppevurdere, afklare ungeprofiler	
-            </div>
-        </div>
-        <div id="item2" draggable="true">
-            <div class="cardTitle">
-                Vejlede målgrupperelevant med individuelt fokus, fremme og sikre ungeprogression
-            </div>
-        </div>
-        	<div id="item3" draggable="true">
-				<div class="cardTitle">
-					Co-designe og koordinere individuelle forløb i kædeansvaret, inddrage de unge i meddesign, organisere didaktisk
-				</div>
-                </div>
+                    
                 </div>
                 
                 <div id = "drag2" class = "board drag">
@@ -93,13 +83,41 @@
             </div>
           
       </section>
-    
+      
       <script src = "scripts.js"></script>
       <script src = "pdfmake/build/pdfmake.js"></script>
       <script type="text/javascript" src="pdfmake/build/vfs_fonts.js"></script>
 
       <script>
-          
+          document.getElementById('drag1').innerHTML = getData(setData(appdata.block1));
+        
+                    
+
+          function setData(dataobj){
+              let arr = [[]];
+              var prop = [];
+             let html = dataobj.title;
+             var i = 0;
+                for(x in dataobj) {
+                   prop = [dataobj[x].dragid,dataobj[x].value];
+                   arr.push(prop);
+                }
+                return arr;
+          }
+
+          function getData(arr) {
+              let html = '<div class="title"><h2>Færdigheder</h2></div>';
+              
+              for(i = 1; i< arr.length;i++){
+                  html+= '<div id = "'+arr[i][0]+'" draggable="true">';
+                    html+='<div class = "cardTitle">'+arr[i][1]+'</div>';
+                    html+= '</div>';
+              }
+              return html;
+          }
+          function test(){
+              return "test om det her virker";
+          }
     
         var dd = {
         content: [
@@ -108,7 +126,7 @@
         ]
         
     }    
-        pdfMake.createPdf(dd).download();
+        //pdfMake.createPdf(dd).download();
         
     
           </script>
