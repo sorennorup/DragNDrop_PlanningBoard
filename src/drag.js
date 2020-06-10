@@ -59,6 +59,6 @@ function setItemsOnDragStart(items) {
             event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
     });
 
-}
+ }
 
     
