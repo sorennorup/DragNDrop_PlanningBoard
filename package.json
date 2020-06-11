@@ -16,8 +16,8 @@
     "url": "https://github.com/sorennorup/min_kompetenceprofil/issues"
   },
   "homepage": "https://github.com/sorennorup/min_kompetenceprofil#readme",
-  
   "dependencies": {
+    "gulp": "^4.0.2",
     "pdfmake": "^0.1.65",
     "webpack": "^4.43.0"
   }

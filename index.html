@@ -7,24 +7,22 @@
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js">
         </script>
        
-        </script>
+   
 
         <title>Lav din egen kompetenceprofil</title>
     </head>
 
     <body>
+        <script>
+            $(document).load(function(){
+
+            })
+        </script>
       <header id = "header"><h1>Kompetenceprofil for [navn eller kommune]</h1></header>
-      <div id = "saved-text"></div>
-      <div id = "session-storage"></div>
-      <div id = "test"></div>
-      <script>
-          
-               
-           
-        document.getElementById('session-storage').innerHTML =  sessionStorage.getItem("item4")+" "+sessionStorage.getItem("item5");
-      </script>
+      
       
       <section id = "content">
+         
         <div class = "board-wrapper">
             <div id = "done1" class = "board">
                 <div class="title"><h2 id = "title1">Kompetencer</h2></div>
@@ -36,9 +34,15 @@
           
             <div id = "done3" class = "board">
                 <div class="title"><h2 id = "title3">Færdigheder</h2></div>
+               
+            </div>
+            <div id = "button__wrapper">        
+               <button id = "startover" class = "button">START FORFRA</button>
+                <button id = "button" class = "button">DOWNLOAD</button>
             </div>
         </div>
-
+        
+       
         <div class = "board-wrapper">
             <div id = "drag1" class = "board drag"></div>
             <div id = "drag2" class = "board drag"></div>
@@ -52,16 +56,14 @@
       <script type="text/javascript" src="pdfmake/build/vfs_fonts.js"></script>
 
       <script>
+          $('#button').click(function(){
+              window.location.reload();
 
-        var dd = {
-        content: [
-            window.sessionStorage.getItem('item3'),
-            window.sessionStorage.getItem('item4')
-        ]
+          })
         
-    }    
-        //pdfMake.createPdf(dd).download();
         
+
+      
     
           </script>
     
