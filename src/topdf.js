@@ -8,25 +8,23 @@ dropedValues = getSessionStorageValues();
 storeValuesOnBoard(sessionArr);
 
 function storeValuesOnBoard(arr){
- for(i = 0; i < 10;  i++) {
-     let id = arr[i];
-    let val = arr[i].substr(4)
-     let num = parseInt(val);
-     if( num < 5) {
-       
-        $('#done1').append(document.getElementById(id)); 
-     }
-     else if(num < 8) {
-        $('#done2').append(document.getElementById(id)); 
-     }
-     else {
-        $('#done3').append(document.getElementById(id)); 
-     }
- }
+    for(i = 0; i < 10;  i++) {
+        let id = arr[i];
+        let val = arr[i].substr(4)
+        let num = parseInt(val);
+        if( num < 5) {
+            $('#done1').append(document.getElementById(id)); 
+        }
+        else if(num < 8) {
+            $('#done2').append(document.getElementById(id)); 
+        }
+        else {
+            $('#done3').append(document.getElementById(id)); 
+        }
+    }
 }
 
 function getSessionStorageValues(){
-
     let vals="";
     for(key in sessionStorage){
         sessionStorage[key];
