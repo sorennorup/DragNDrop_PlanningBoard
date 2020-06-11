@@ -1,4 +1,15 @@
 
+var allItems = getDragItems(data);
+    
+setItemsOnDragStart(allItems);   
+
+createDraggableArea(['#drag1','#done1'],getItemsForDraggable(data.block1));
+createDraggableArea(['#drag2','#done2'],getItemsForDraggable(data.block2));
+createDraggableArea(['#drag3','#done3'], getItemsForDraggable(data.block3));
+
+createDraggableArea('#drag1', getItemsForDraggable(data.block1));
+
+
 function getDragItems(arr){
     let resstring=" ";
     for (let key in arr.block1) {
@@ -16,13 +27,12 @@ function getDragItems(arr){
         return resstring;
     }
 
-var allItems = getDragItems(data);
-    
-setItemsOnDragStart(allItems);   
+function setItemsOnDragStart(items) {
 
-createDraggableArea('#done1',getItemsForDraggable(data.block1));
-createDraggableArea('#done2',getItemsForDraggable(data.block2));
-createDraggableArea('#done3', getItemsForDraggable(data.block3));
+    $(items).bind('dragstart', function(event) {
+            event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
+    });
+}
 
 function getItemsForDraggable(blockobj) {
     let arr = [];
@@ -32,33 +42,35 @@ function getItemsForDraggable(blockobj) {
         }
         return arr;
 }
-
+ // bind the dragover event on the board sections
 function createDraggableArea(areaid, items){
-         // bind the dragover event on the board sections
-    $(areaid).bind('dragover', function(event) {
-    event.preventDefault();
-    });
-        // bind the drop event on the board sections
-    $(areaid).bind('drop', function(event) {
-    var notecard = event.originalEvent.dataTransfer.getData("text/plain");
-    window.sessionStorage.setItem(notecard,$('#'+notecard).text());
-        
-    for(var i = 0; i < items.length; i++){
-        if(items[i] == notecard)
-        event.target.appendChild(document.getElementById(notecard));
-    }
-        // Turn off the default behaviour
-        // without this, FF will try and go to a URL with your id's name
-    event.preventDefault();
-    });
+    for(var i = 0; i < areaid.length; i++){
+        dragOver(areaid[i])
+        dropInArea(areaid[i],items);
+    }   
 }
 
-function setItemsOnDragStart(items) {
-
-    $(items).bind('dragstart', function(event) {
-            event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
+function dragOver(areaid) {
+    $(areaid).bind('dragover', function(event) {
+        event.preventDefault();
     });
+}
+ // bind the drop event on the board sections
+function dropInArea(areaid,items) {
+    $(areaid).bind('drop', function(event) {
+        var notecard = event.originalEvent.dataTransfer.getData("text/plain");
+        window.sessionStorage.setItem(notecard,$('#'+notecard).text());
+        for(var i = 0; i < items.length; i++){
+            if(items[i] == notecard)
+            event.target.appendChild(document.getElementById(notecard));
+        }
+        // Turn off the default behaviour
+        // without this, FF will try and go to a URL with your id's name
+        event.preventDefault();
+        });
+    
+}
 
- }
+
 
     
