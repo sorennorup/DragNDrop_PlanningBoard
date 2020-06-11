@@ -19,7 +19,7 @@ function getDragItems(arr){
 var allItems = getDragItems(data);
     
 setItemsOnDragStart(allItems);   
-alert(getItemsForDraggable(data.block1));
+
 createDraggableArea('#done1',getItemsForDraggable(data.block1));
 createDraggableArea('#done2',getItemsForDraggable(data.block2));
 createDraggableArea('#done3', getItemsForDraggable(data.block3));
