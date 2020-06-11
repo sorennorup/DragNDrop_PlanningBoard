@@ -7,25 +7,20 @@ createDraggableArea(['#drag1','#done1'],getItemsForDraggable(data.block1));
 createDraggableArea(['#drag2','#done2'],getItemsForDraggable(data.block2));
 createDraggableArea(['#drag3','#done3'], getItemsForDraggable(data.block3));
 
-createDraggableArea('#drag1', getItemsForDraggable(data.block1));
-
-
 function getDragItems(arr){
     let resstring=" ";
-    for (let key in arr.block1) {
-        let value = arr.block1[key];
-        resstring+="#"+value.dragid+',';    
+    var i= 0;
+    for (let key1 in arr){
+        if(i > 0){
+            for (let key2 in arr.block2) {
+                let value2 = arr[key1][key2];
+                resstring+="#"+value2.dragid+',';    
+            }
         }
-    for (let key2 in arr.block2) {
-        let value2 = arr.block2[key2];
-        resstring+="#"+value2.dragid+',';    
-        }
-    for (let key2 in arr.block3) {
-        let value2 = arr.block3[key2];
-        resstring+="#"+value2.dragid+',';    
-        }
-        return resstring;
+        i++;
     }
+    return resstring;
+}
 
 function setItemsOnDragStart(items) {
 
