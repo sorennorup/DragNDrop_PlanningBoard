@@ -1,39 +1,91 @@
 console.log(sessionStorage);
 
+let numitemsbox1 = getNumItems(data)[1][0].length+1;
+let numitemsbox2 = getNumItems(data)[1][1].length;
 //Saves items on the done boards
 let sessionArr = getSessionStorageKeys();
 dropedValues = getSessionStorageValues();
 storeValuesOnBoard(sessionArr);
 
+
+function getNumItems(arr){
+    let resstring=" ";
+    var i= 0;
+   var num= 0;
+   let resarray = [];
+    for (let key1 in arr){
+        if(i > 0){
+            let arrayName = "array"+key1; 
+            arrayName = [];
+            for (let key2 in arr[key1]) {
+                let value2 = arr[key1][key2];
+                resstring+="#"+value2.dragid+',';
+                arrayName.push(value2.dragid);
+                num++;  
+            }
+            resarray.push(arrayName);
+        }
+        i++; 
+    }
+    return [num,resarray];
+}
+
 function storeValuesOnBoard(arr){
-    for(i = 0; i < 10;  i++) {
+
+    //let num1 = getNumItems(arr)[1];
+    for(i = 0; i < getNumItems(data)[0];  i++) {
         if(arr[i]!==undefined){
         let id = arr[i];
-        let val = arr[i].substr(4)
-        let num = parseInt(val);
-        if( num < 5) {
+        let num = intIfyId(arr[i]);
+        if( num < numitemsbox1) {
             $('#done1').append(document.getElementById(id)); 
         }
-        else if(num < 8) {
+        else if(num < numitemsbox1+numitemsbox2) {
             $('#done2').append(document.getElementById(id)); 
         }
         else {
             $('#done3').append(document.getElementById(id)); 
         }
-    }
-    }
-}
-
-function getSessionStorageValues(){
-    let vals="";
-    for(key in sessionStorage){
-        sessionStorage[key];
-        val =sessionStorage.getItem(key);
-        if(val!==null){
-            vals+=val+"\n";
         }
     }
-    return vals;
+}
+// Adds the stored values to 3 different strings to put in pdf boxes
+function getSessionStorageValues(){
+    let values1=""; let values2 = ""; let values3 = "";
+    for(key in sessionStorage){
+        let num = intIfyId(key);
+        val =sessionStorage.getItem(key);
+        if(val!==null){
+            if(isInBox(num,numitemsbox1)){  
+            values1+=val+"\n";
+            }
+            else if(isInBox(num,numitemsbox1+numitemsbox2)){
+                if(val!==null){
+                values2+=val+"\n"; 
+                }
+            }
+            else {
+                if(val!==null) {
+                values3+=val+"\n";
+                }
+            }
+        }
+    }
+    return [values1,values2,values3];
+}
+
+
+
+function isInBox(number,boxnumber) {
+    if(number < boxnumber){  
+        return true;
+        }
+}
+
+function intIfyId(item){
+    let val = item.substr(4)
+    let num = parseInt(val);
+    return num;
 }
 
 function getSessionStorageKeys(){
@@ -62,7 +114,7 @@ var dd = {
         },
 
         {
-        text:getSessionStorageValues()+"\n\n",
+        text:getSessionStorageValues()[0]+"\n\n",
 
         },
 
@@ -73,7 +125,7 @@ var dd = {
         },
 
         {
-        text: 'Amden tekst kommer her som ligger under viden \n\n',
+        text:getSessionStorageValues()[1]+"\n\n",
 
         },
 
@@ -84,7 +136,7 @@ var dd = {
         },
 
         {
-        text: 'Amden tekst kommer her som ligger under viden \n\n',
+            text:getSessionStorageValues()[2]+"\n\n",
 
         }
         

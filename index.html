@@ -9,21 +9,13 @@
         <script src = "pdfmake-master/build/pdfmake.min.js"></script>
         <script type="text/javascript" src="pdfmake-master/build/vfs_fonts.js"></script>
   
-       
-   
-
-        <title>Lav din egen kompetenceprofil</title>
+        <title>Kompetenceprofil</title>
     </head>
 
     <body>
-        <script>
-            $(document).load(function(){
-
-            })
-        </script>
+        
       <header id = "header"><h1>Kompetenceprofil for [navn eller kommune]</h1></header>
-      
-      
+
       <section id = "content">
          
         <div class = "board-wrapper">
@@ -44,7 +36,6 @@
                 <button id = "button" class = "button">DOWNLOAD</button>
             </div>
         </div>
-        
        
         <div class = "board-wrapper">
             <div id = "drag1" class = "board drag"></div>
@@ -60,15 +51,9 @@
           
           $('#button').click(function(){
     pdfMake.createPdf(dd).download();
-      //window.location.reload();
-
   })
     
-        
-
-      
-    
-          </script>
+</script>
     
       
 	
