@@ -50,11 +50,10 @@ h2 {
     
 }
 
-
 .board-wrapper {
     max-width: 1136px;
     background:#3a3a3c ;
-    height: 300px;
+    height: 500px;
     display: flex;	
     margin-bottom: 10px;
     margin: 20px auto;
@@ -67,9 +66,6 @@ h2 {
     height: 500px;
 }
 
-
-
-		
 .board {
     width: 33.333%;
     height:auto;

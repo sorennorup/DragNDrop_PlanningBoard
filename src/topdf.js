@@ -3,12 +3,11 @@ console.log(sessionStorage);
 //Saves items on the done boards
 let sessionArr = getSessionStorageKeys();
 dropedValues = getSessionStorageValues();
-
-
 storeValuesOnBoard(sessionArr);
 
 function storeValuesOnBoard(arr){
     for(i = 0; i < 10;  i++) {
+        if(arr[i]!==undefined){
         let id = arr[i];
         let val = arr[i].substr(4)
         let num = parseInt(val);
@@ -22,13 +21,13 @@ function storeValuesOnBoard(arr){
             $('#done3').append(document.getElementById(id)); 
         }
     }
+    }
 }
 
 function getSessionStorageValues(){
     let vals="";
     for(key in sessionStorage){
         sessionStorage[key];
-        
         val =sessionStorage.getItem(key);
         if(val!==null){
             vals+=val+"\n";
@@ -121,6 +120,3 @@ pdfMake.fonts = {
     }
 };
 
-
-  // pdfMake.createPdf(dd).download();
-    

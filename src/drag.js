@@ -76,10 +76,12 @@ function dropInArea(areaid,items) {
         for(var i = 0; i < items.length; i++){
             if(items[i] == notecard)
             event.target.appendChild(document.getElementById(notecard));
+            
         }
         // Turn off the default behaviour
         // without this, FF will try and go to a URL with your id's name
         event.preventDefault();
+        window.location.reload();
         });
     
 }
