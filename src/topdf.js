@@ -9,10 +9,7 @@ storeValuesOnBoard(sessionArr);
 
 
 function getNumItems(arr){
-    let resstring=" ";
-    var i= 0;
-   var num= 0;
-   let resarray = [];
+    let resstring=" ";var i= 0;var num= 0;let resarray = [];
     for (let key1 in arr){
         if(i > 0){
             let arrayName = "array"+key1; 
@@ -49,32 +46,27 @@ function storeValuesOnBoard(arr){
         }
     }
 }
-// Adds the stored values to 3 different strings to put in pdf boxes
+// Adds the stored values to 3 different strings to store in the pdf boxes
 function getSessionStorageValues(){
     let values1=""; let values2 = ""; let values3 = "";
     for(key in sessionStorage){
         let num = intIfyId(key);
-        val =sessionStorage.getItem(key);
+        let val =sessionStorage.getItem(key);
         if(val!==null){
             if(isInBox(num,numitemsbox1)){  
             values1+=val+"\n";
             }
             else if(isInBox(num,numitemsbox1+numitemsbox2)){
-                if(val!==null){
-                values2+=val+"\n"; 
-                }
+                values2+=val+"\n";    
             }
             else {
-                if(val!==null) {
                 values3+=val+"\n";
-                }
-            }
+             }
+            
         }
     }
     return [values1,values2,values3];
 }
-
-
 
 function isInBox(number,boxnumber) {
     if(number < boxnumber){  

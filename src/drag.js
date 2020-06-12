@@ -23,7 +23,7 @@ function getItems(arr){
                 let value2 = arr[key1][key2];
                 resstring+="#"+value2.dragid+',';
                 arrayName.push(value2.dragid);
-                num++;  
+              num++;  
             }
             resarray.push(arrayName);
         }
