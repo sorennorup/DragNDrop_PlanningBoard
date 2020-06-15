@@ -64,7 +64,12 @@ data = {
         "id4": {
             "dragid": "item11",
             "value": "Beherske metoder til evalueringer og kvalitetssikring"
+        },
+        "id5": {
+            "dragid": "item12",
+            "value" : "Dette er endnu en tekstbox tilføjet datafilen"
         }
+
 
 
     }
