@@ -2,6 +2,8 @@ console.log(sessionStorage);
 
 let numitemsbox1 = getNumItems(data)[1][0].length+1;
 let numitemsbox2 = getNumItems(data)[1][1].length;
+let numitemsbox3 = getNumItems(data)[1][2].length;
+
 //Saves items on the done boards
 let sessionArr = getSessionStorageKeys();
 dropedValues = getSessionStorageValues();
@@ -40,7 +42,7 @@ function storeValuesOnBoard(arr){
         else if(num < numitemsbox1+numitemsbox2) {
             $('#done2').append(document.getElementById(id)); 
         }
-        else {
+        else if(num < numitemsbox1+numitemsbox2+numitemsbox3) {
             $('#done3').append(document.getElementById(id)); 
         }
         }
@@ -59,10 +61,9 @@ function getSessionStorageValues(){
             else if(isInBox(num,numitemsbox1+numitemsbox2)){
                 values2+=val+"\n";    
             }
-            else {
+            else if(isInBox(num,numitemsbox1+numitemsbox2+numitemsbox3)) {
                 values3+=val+"\n";
              }
-            
         }
     }
     return [values1,values2,values3];
@@ -95,8 +96,11 @@ function getSessionStorageKeys(){
 var dd = {
     content: [
         {
-            text: 'KOMPETENCEPROFIL FOR [KOMMUNE] \n \n',
+            text: 'KOMPETENCEPROFIL FOR '+sessionStorage.getItem('name').toUpperCase()+' \n \n',
             style: 'header'
+        },
+        {
+            text: sessionStorage.getItem('date').toUpperCase()+' \n \n',
         },
 
         {
@@ -141,7 +145,8 @@ var dd = {
 
     styles: {
 		header: {
-            fontSize: 25, 
+            fontSize: 25,
+             
         },
 
         subheader: {

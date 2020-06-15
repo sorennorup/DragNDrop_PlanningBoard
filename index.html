@@ -11,10 +11,29 @@
   
         <title>Kompetenceprofil</title>
     </head>
+    <script>
+        let name = "";
+        let today = new Date();
+        let weekday = today.getDate();
+        let month = today.getMonth();
+        let year = today.getFullYear();
+        let thisdate = weekday+'-'+month+'-'+year;
 
+        if(sessionStorage.getItem('firstload')===null){
+            name = prompt('Indtast dit navn eller kommunenavn','');
+            sessionStorage.setItem('firstload','true');
+            sessionStorage.setItem('name',name);
+            sessionStorage.setItem('date',thisdate);
+            alert(sessionStorage.getItem('date'));
+        }
+        
+    </script>
     <body>
         
-      <header id = "header"><h1>Kompetenceprofil for [navn eller kommune]</h1></header>
+      <header id = "header"><h1>Kompetenceprofil for </h1></header>
+      <script>
+          $('#header').html('<h1>Kompetenceprofil for '+sessionStorage.getItem('name')+'</h1><p>'+sessionStorage.getItem('date')+'</p>');
+      </script>
 
       <section id = "content">
          
