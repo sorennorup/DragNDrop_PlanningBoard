@@ -1,4 +1,3 @@
-console.log(sessionStorage);
 
 let numitemsbox1 = getNumItems(data)[1][0].length+1;
 let numitemsbox2 = getNumItems(data)[1][1].length;
@@ -97,15 +96,14 @@ function getSessionStorageKeys(){
     let arr = []; 
     for(key in sessionStorage){
         if(key!=="name" && key!=="firstload" && key!=="date"){
-        let val =sessionStorage.getItem(key);
-        if(val!==null){
-        arr.push(key);
+            let val =sessionStorage.getItem(key);
+            if(val!==null){
+                arr.push(key);
+            }
         }
-    }
     }
     return arr;
 }
-
 
 var dd = {
     content: [
