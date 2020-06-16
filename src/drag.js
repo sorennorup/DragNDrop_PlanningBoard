@@ -1,7 +1,4 @@
-
 var allItems = getItems(data);
-
-
 setItemsOnDragStart(allItems[0]);   
 
 createDraggableArea(['#drag1','#done1'],getItemsForDraggable(data.block1));
@@ -12,10 +9,9 @@ dropBack('#drag1'); dropBack('#drag2'); dropBack('#drag3');
 function getItems(arr){
     let resstring=" ";
     var i= 0;
-   var num= 0;
-   let resarray = [];
+    var num= 0;
+    let resarray = [];
     for (let key1 in arr){
-        
         if(i > 0){
             let arrayName = "array"+key1; 
             arrayName = [];
@@ -35,22 +31,22 @@ function getItems(arr){
 function setItemsOnDragStart(items) {
     $(items).bind('dragstart', function(event) {
         event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
-        
         let targetid = event.currentTarget.id;
-        var parentel = document.getElementById(targetid).parentElement.id;
+        var parentel = getParentId(targetid);
         if(parentel == "done1" || parentel == "done2" || parentel == "done3"){
             event.currentTarget.style.border = "dotted";
             event.currentTarget.style.backgroundColor = "#699fc2";
         }
         else {
-        event.currentTarget.style.border = "dotted";
-        event.currentTarget.style.backgroundColor = "#000";
-       
+            event.currentTarget.style.border = "dotted";
+            event.currentTarget.style.backgroundColor = "#000";
         }
-       
-       
-
     });
+}
+
+function getParentId(targetid){
+    var parentel = document.getElementById(targetid).parentElement.id;
+    return parentel;
 }
 
 function getItemsForDraggable(blockobj) {
