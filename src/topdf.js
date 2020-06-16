@@ -2,10 +2,14 @@ console.log(sessionStorage);
 
 let numitemsbox1 = getNumItems(data)[1][0].length+1;
 let numitemsbox2 = getNumItems(data)[1][1].length;
-let numitemsbox3 = getNumItems(data)[1][2].length;
+let numitemsbox3 = getNumItems(data)[1][2].length+1;
+console.log(numitemsbox1);
+console.log(numitemsbox1+numitemsbox2);
+console.log(numitemsbox3);
 
 //Saves items on the done boards
 let sessionArr = getSessionStorageKeys();
+console.log(sessionArr);
 dropedValues = getSessionStorageValues();
 storeValuesOnBoard(sessionArr);
 
@@ -13,7 +17,7 @@ storeValuesOnBoard(sessionArr);
 function getNumItems(arr){
     let resstring=" ";var i= 0;var num= 0;let resarray = [];
     for (let key1 in arr){
-        if(i > 0){
+    if(i > 0){
             let arrayName = "array"+key1; 
             arrayName = [];
             for (let key2 in arr[key1]) {
@@ -26,6 +30,7 @@ function getNumItems(arr){
         }
         i++; 
     }
+    console.log(num);
     return [num,resarray];
 }
 
@@ -50,11 +55,15 @@ function storeValuesOnBoard(arr){
 }
 // Adds the stored values to 3 different strings to store in the pdf boxes
 function getSessionStorageValues(){
+    var i = 0;
     let values1=""; let values2 = ""; let values3 = "";
     for(key in sessionStorage){
+   
         let num = intIfyId(key);
         let val =sessionStorage.getItem(key);
+        
         if(val!==null){
+            console.log(key);
             if(isInBox(num,numitemsbox1)){  
             values1+=val+"\n";
             }
@@ -65,7 +74,10 @@ function getSessionStorageValues(){
                 values3+=val+"\n";
              }
         }
+        i++;
+    
     }
+    console.log(values2);
     return [values1,values2,values3];
 }
 
@@ -84,10 +96,12 @@ function intIfyId(item){
 function getSessionStorageKeys(){
     let arr = []; 
     for(key in sessionStorage){
+        if(key!=="name" && key!=="firstload" && key!=="date"){
         let val =sessionStorage.getItem(key);
         if(val!==null){
         arr.push(key);
         }
+    }
     }
     return arr;
 }

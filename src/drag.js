@@ -35,6 +35,7 @@ function getItems(arr){
 function setItemsOnDragStart(items) {
     $(items).bind('dragstart', function(event) {
         event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
+       
     });
 }
 
@@ -54,6 +55,8 @@ function createDraggableArea(areaid, items){
     }   
 }
 
+
+
 function dragOver(areaid) {
     $(areaid).bind('dragover', function(event) {
         event.preventDefault();
@@ -72,10 +75,12 @@ function dropBack(areaId){
 function dropInArea(areaid,items) {
     $(areaid).bind('drop', function(event) {
         var notecard = event.originalEvent.dataTransfer.getData("text/plain");
+        
         window.sessionStorage.setItem(notecard,$('#'+notecard).text());
         for(var i = 0; i < items.length; i++){
             if(items[i] == notecard)
             event.target.appendChild(document.getElementById(notecard));
+            
             
         }
         // Turn off the default behaviour
