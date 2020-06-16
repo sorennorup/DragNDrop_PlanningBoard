@@ -35,7 +35,8 @@ function getItems(arr){
 function setItemsOnDragStart(items) {
     $(items).bind('dragstart', function(event) {
         event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
-       
+        event.currentTarget.style.border = "dotted";
+        event.currentTarget.style.backgroundColor = "#000";
     });
 }
 
@@ -55,13 +56,12 @@ function createDraggableArea(areaid, items){
     }   
 }
 
-
-
 function dragOver(areaid) {
     $(areaid).bind('dragover', function(event) {
         event.preventDefault();
     });
 }
+
 function dropBack(areaId){
     $(areaId).bind('drop', function(){
         var notecard = event.dataTransfer.getData("text/plain");
@@ -75,13 +75,10 @@ function dropBack(areaId){
 function dropInArea(areaid,items) {
     $(areaid).bind('drop', function(event) {
         var notecard = event.originalEvent.dataTransfer.getData("text/plain");
-        
         window.sessionStorage.setItem(notecard,$('#'+notecard).text());
         for(var i = 0; i < items.length; i++){
             if(items[i] == notecard)
-            event.target.appendChild(document.getElementById(notecard));
-            
-            
+            event.target.appendChild(document.getElementById(notecard)); 
         }
         // Turn off the default behaviour
         // without this, FF will try and go to a URL with your id's name
