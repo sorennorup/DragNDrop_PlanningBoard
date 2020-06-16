@@ -35,8 +35,21 @@ function getItems(arr){
 function setItemsOnDragStart(items) {
     $(items).bind('dragstart', function(event) {
         event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
+        
+        let targetid = event.currentTarget.id;
+        var parentel = document.getElementById(targetid).parentElement.id;
+        if(parentel == "done1" || parentel == "done2" || parentel == "done3"){
+            event.currentTarget.style.border = "dotted";
+            event.currentTarget.style.backgroundColor = "#699fc2";
+        }
+        else {
         event.currentTarget.style.border = "dotted";
         event.currentTarget.style.backgroundColor = "#000";
+       
+        }
+       
+       
+
     });
 }
 
