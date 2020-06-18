@@ -12,7 +12,6 @@ console.log(sessionArr);
 dropedValues = getSessionStorageValues();
 storeValuesOnBoard(sessionArr);
 
-
 function getNumItems(arr){
     let resstring=" ";var i= 0;var num= 0;let resarray = [];
     for (let key1 in arr){
@@ -34,8 +33,6 @@ function getNumItems(arr){
 }
 
 function storeValuesOnBoard(arr){
-
-    //let num1 = getNumItems(arr)[1];
     for(i = 0; i < getNumItems(data)[0];  i++) {
         if(arr[i]!==undefined){
         let id = arr[i];

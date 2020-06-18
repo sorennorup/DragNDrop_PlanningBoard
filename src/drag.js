@@ -6,6 +6,14 @@ createDraggableArea(['#drag2','#done2'],getItemsForDraggable(data.block2));
 createDraggableArea(['#drag3','#done3'], getItemsForDraggable(data.block3));
 dropBack('#drag1'); dropBack('#drag2'); dropBack('#drag3');
 
+document.addEventListener("dragenter", function(event) {
+    if ( event.target.className == "cardTitle" ) {
+      event.target.style.border = "3px dotted red";
+    }
+    
+  });
+  
+
 function getItems(arr){
     let resstring=" ";
     var i= 0;
@@ -35,13 +43,16 @@ function setItemsOnDragStart(items) {
         let targetid = event.currentTarget.id;
         var parentel = getParentId(targetid);
         if(parentel == "done1" || parentel == "done2" || parentel == "done3"){
-            event.currentTarget.style.border = "dotted";
-            event.currentTarget.style.backgroundColor = "#699fc2";
+            //event.currentTarget.style.border = "dotted";
+            //event.currentTarget.style.backgroundColor = "#699fc2";
+            $("#"+event.currentTarget.id).addClass('drag-enter');
         }
         else {
-            event.currentTarget.style.border = "dotted";
-            event.currentTarget.style.backgroundColor = "#000";
+            $("#"+event.currentTarget.id).addClass('drag-enter');
         }
+    });
+    $(items).bind('dragexit', function(event) {
+        $("#"+event.currentTarget.id).addClass('drag-enter');
     });
 }
 
@@ -90,8 +101,7 @@ function dropInArea(areaid,items) {
         for(var i = 0; i < items.length; i++){
             if(items[i] == notecard)
             event.target.appendChild(document.getElementById(notecard)); 
-            
-
+            $(notecard).removeClass('drag-enter');
         }
         // Turn off the default behaviour
         // without this, FF will try and go to a URL with your id's name

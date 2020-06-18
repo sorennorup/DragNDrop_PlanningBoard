@@ -1,19 +1,20 @@
 body {
     font-family:"Barlow Semi Condensed",sans-serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
     background:#f3f1f7;
     width: 100%;
 }
 #header {
-    max-width: 1300px;
-    text-align: center;
+    max-width: 1136px;
+    
 }
+
 h1 {
     color: #3a3a3c;
-    padding: 10px;
-    text-transform: uppercase;
+    padding: 40px;
     font-weight: 200;
     font-size: 2.275rem;
+    margin-bottom: 80px;
 }
 
 h2 {
@@ -24,50 +25,86 @@ h2 {
     text-transform: uppercase;
 }
 
-.drag h2 {
-    color: #fff;
+h3 {
+    color: #3a3a3c;
+    font-weight: 200;
+    font-size: 1.875rem;
+}
+
+.cardTitle {
+    font-family:"Barlow Semi Condensed",sans-serif;
 }
 
 .button {
-    background: #699fc2; 
-    height: 50px;
-    width:165px; 
+    font-family:"Barlow Semi Condensed",sans-serif;
+    letter-spacing: 1.5px;
+    height: 30px;
+    width: 33.333%;
     padding: 20px;
     color: #fff;
     cursor: pointer;
     border: none;
-    margin-bottom: 20px;
-    float:right;
-    text-align: center;
     background-color:#d9d9d9;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
+.button:hover {
+    background-color: #fff;
+    color: #3a3a3c;
+};
+
 .button:last-child {
-    margin-right: 5px;
+    margin-right: 0px;
 }
 
 #button__wrapper {
-    max-width: 1136px;
+    max-width: 968px;
     width: 100%;
     position: absolute;
-    margin-top: -50px;
-    
+    margin-top: -60px;   
+    display: flex;
+    justify-content: space-between;
+}
+
+.drag-start{
+  opacity: 0.8;
+}
+
+.drag-enter{
+  opacity: 0.5;
+  transform: scale(0.9);
+  color: #fff;
+}
+
+#date {
+    color: #fff;
+    position: absolute;
+    margin-left: 20px;
 }
 
 .board-wrapper {
-    max-width: 1136px;
+    max-width: 968px;
     background:#3a3a3c ;
-    height: 500px;
+    height: auto;
     display: flex;	
     margin-bottom: 10px;
     margin: 20px auto;
-    justify-content: center;
-    justify-content: space-between;  
+    color: #f3f3f3;
 }
 
 .board-wrapper:nth-child(2){
-    background-color:#699fc2;
+    background-color:#fff;
     height: 500px;
+    color: #3a3a3a;
+}
+
+.board-wrapper:nth-child(2) .cardTitle {
+    border:2px solid #d9d9d9;
+	padding: 10px;
 }
 
 .board {
@@ -76,8 +113,7 @@ h2 {
     display: block;
     margin: 20px;
 }
-
-			
+		
 *[draggable=true]
 		{
 			float:left;
@@ -88,12 +124,12 @@ h2 {
 			font-weight:300;
 			cursor: move;
 			cursor: grab;
-		}
+        }
 
-		.cardTitle
-		{
-			color: #fff;
+		.board-wrapper .cardTitle {
 			border:2px solid white;
 			padding: 10px;
-		}
+        }
+        
+        
 		
