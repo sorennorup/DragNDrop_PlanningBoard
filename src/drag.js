@@ -31,6 +31,7 @@ function getItems(arr){
 function setItemsOnDragStart(items) {
     $(items).bind('dragstart', function(event) {
         event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
+        event.originalEvent.dataTransfer.effectAllowed = "move";
         let targetid = event.currentTarget.id;
         var parentel = getParentId(targetid);
         if(parentel == "done1" || parentel == "done2" || parentel == "done3"){
@@ -83,11 +84,14 @@ function dropBack(areaId){
  // bind the drop event on the board sections
 function dropInArea(areaid,items) {
     $(areaid).bind('drop', function(event) {
+        event.originalEvent.dataTransfer.effectAllowed = "copy";
         var notecard = event.originalEvent.dataTransfer.getData("text/plain");
         window.sessionStorage.setItem(notecard,$('#'+notecard).text());
         for(var i = 0; i < items.length; i++){
             if(items[i] == notecard)
             event.target.appendChild(document.getElementById(notecard)); 
+            
+
         }
         // Turn off the default behaviour
         // without this, FF will try and go to a URL with your id's name
