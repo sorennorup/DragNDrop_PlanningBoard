@@ -62,12 +62,16 @@ h3 {
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    outline:none;
 }
 
 .button:hover {
     background-color: #fff;
     color: #3a3a3c;
 };
+.button:active {
+    border: none;
+}
 
 .button:last-child {
     margin-right: 0px;
