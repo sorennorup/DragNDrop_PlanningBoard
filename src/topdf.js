@@ -102,15 +102,20 @@ function getSessionStorageKeys(){
 var dd = {
     content: [
         {
-            text: 'KOMPETENCEPROFIL FOR '+sessionStorage.getItem('name').toUpperCase()+' \n \n',
+            text: 'KOMPETENCEPROFIL',
             style: 'header'
         },
         {
-            text: sessionStorage.getItem('date').toUpperCase()+' \n \n',
+           text: 'Kontaktperson+ i kædeansvaret',
+           style: 'smaller'
         },
+          {
+            text: sessionStorage.getItem('name')+' '+sessionStorage.getItem('date').toUpperCase()+' \n \n \n' ,
+            style: 'smallest'
+          },
 
         {
-			text: 'KOMPETENCER \n',
+			text: 'Viden \n',
             style: 'subheader'
            
         },
@@ -121,7 +126,7 @@ var dd = {
         },
 
         {
-			text: 'VIDEN \n',
+			text: 'Kompetencer\n',
             style: 'subheader'
            
         },
@@ -151,8 +156,16 @@ var dd = {
 
     styles: {
 		header: {
-            fontSize: 25,
+            fontSize: 28,
              
+        },
+
+        smaller: {
+            fontSize: 18,
+        },
+
+        smallest: {
+            fontSize: 14
         },
 
         subheader: {
