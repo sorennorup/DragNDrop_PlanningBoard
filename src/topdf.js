@@ -2,13 +2,10 @@
 let numitemsbox1 = getNumItems(data)[1][0].length+1;
 let numitemsbox2 = getNumItems(data)[1][1].length;
 let numitemsbox3 = getNumItems(data)[1][2].length+1;
-console.log(numitemsbox1);
-console.log(numitemsbox1+numitemsbox2);
-console.log(numitemsbox3);
 
 //Saves items on the done boards
 let sessionArr = getSessionStorageKeys();
-console.log(sessionArr);
+
 dropedValues = getSessionStorageValues();
 storeValuesOnBoard(sessionArr);
 
@@ -28,7 +25,7 @@ function getNumItems(arr){
         }
         i++; 
     }
-    console.log(num);
+   
     return [num,resarray];
 }
 
@@ -59,7 +56,7 @@ function getSessionStorageValues(){
         let val =sessionStorage.getItem(key);
         
         if(val!==null){
-            console.log(key);
+           
             if(isInBox(num,numitemsbox1)){  
             values1+=val+"\n";
             }
@@ -73,7 +70,7 @@ function getSessionStorageValues(){
         i++;
     
     }
-    console.log(values2);
+   
     return [values1,values2,values3];
 }
 

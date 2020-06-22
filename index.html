@@ -28,10 +28,11 @@
         
     </script>
     <body>
-        
+        <div id = "wrapper">
       <header id = "header"></header>
       <script>
-          $('#header').html('<h1>KOMPETENCEPROFIL</br> - '+'<span style = "font-size: 1.875rem;">'+sessionStorage.getItem('name')+'</span></h1>');
+          $('#header').html('<h1>KOMPETENCEPROFIL</h1><span style = "font-size: 1.875rem;">Kontaktperson+ i kædeansvaret</br>'+
+            '</span><span style = "font-size:1.375rem;"> - '+sessionStorage.getItem('name')+'</span>');
       </script>
 
       <section id = "content">
@@ -39,20 +40,20 @@
         <div id = "board-wrapper__upper" class = "board-wrapper">
             <p id = "date"></p>;
          <script>
-             $('#date').html('Dato d.'+' '+sessionStorage.getItem('date'));
+             $('#date').html(sessionStorage.getItem('date'));
          </script>
             <div id = "done1" class = "board " draggable="true">
                
-                <div class="title"><h2 id = "title1">Kompetencer</h2></div>
+                <div class="title"><h2 id = "title1">Viden</h2></div>
                
             </div>
 
             <div id = "done2" class = "board" draggable="true">
-                <div class="title"><h2 id = "title2">Viden</h2></div>
+                <div class="title"><h2 id = "title2">Kompetencer</h2></div>
             </div>
           
             <div id = "done3" class = "board" draggable="true">
-                <div class="title"><h2 id = "title3">Færdigheder</h2></div>
+                <div class="title"><h2 id = "title3">FÃ¦rdigheder</h2></div>
               
             </div>
             <div id = "button__wrapper">        
@@ -79,6 +80,7 @@
   })
     
         </script>
+        </div>
     </body>
 </html>
     

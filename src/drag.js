@@ -7,11 +7,10 @@ createDraggableArea(['#drag3','#done3'], getItemsForDraggable(data.block3));
 dropBack('#drag1'); dropBack('#drag2'); dropBack('#drag3');
 
 document.addEventListener("dragenter", function(event) {
-    if ( event.target.className == "cardTitle" ) {
-      event.target.style.border = "3px dotted red";
+    if(event.target.id == "board-wrapper__upper") {
+        this.getElementById("board-wrapper__upper").style.border = "dotted";
     }
-    
-  });
+});
   
 
 function getItems(arr){
@@ -42,17 +41,10 @@ function setItemsOnDragStart(items) {
         event.originalEvent.dataTransfer.effectAllowed = "move";
         let targetid = event.currentTarget.id;
         var parentel = getParentId(targetid);
-        if(parentel == "done1" || parentel == "done2" || parentel == "done3"){
-            //event.currentTarget.style.border = "dotted";
-            //event.currentTarget.style.backgroundColor = "#699fc2";
-            $("#"+event.currentTarget.id).addClass('drag-enter');
-        }
-        else {
-            $("#"+event.currentTarget.id).addClass('drag-enter');
-        }
+       
     });
     $(items).bind('dragexit', function(event) {
-        $("#"+event.currentTarget.id).addClass('drag-enter');
+        //$("#"+event.currentTarget.id).addClass('drag-enter');
     });
 }
 

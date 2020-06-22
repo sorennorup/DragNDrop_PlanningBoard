@@ -1,47 +1,48 @@
 data = {
     "titles": {
-       "title1": "Kompetencer",
-       "title2": "Viden",
+       "title1": "Viden",
+       "title2": "Kompetencer",
        "title3": "Færdigheder"
     },
     
     "block1":
      {
-        
         "id1": {
             "dragid": "item1",
-            "value": "Opsøge unge, målgruppevurdere, afklare ungeprofiler	"
-        },
-        "id2": {
-            "dragid": "item2",
-            "value": "Vejlede målgrupperelevant med individuelt fokus, fremme og sikre ungeprogression"
-        },
-        "id3": {
-            "dragid": "item3",
-            "value": "Co-designe og koordinere individuelle forløb i kædeansvaret, inddrage de unge i meddesign, organisere didaktisk"
-        },
-
-        "id4": {
-            "dragid": "item4",
-            "value": "Afklare og afbalancere de professionelles tilgange til de unge"
-        }
-
-    },
-
-    "block2":
-     { 
-        "id1": {
-            "dragid": "item5",
             "value": "Respektere målgruppen"
         },
 
         "id2": {
-            "dragid": "item6",
+            "dragid": "item2",
             "value": "Kende målgrupperelevante metoder inden for bl.a. vejledning, pædagogik, socialfaglighed"
         },
         "id3": {
-            "dragid": "item7",
+            "dragid": "item3",
             "value": "Kende metoder for tværprofessionelt samarbejde"
+        }
+
+       
+    },
+
+    "block2":
+     { 
+       
+        "id1": {
+            "dragid": "item4",
+            "value": "Opsøge unge, målgruppevurdere, afklare ungeprofiler	"
+        },
+        "id2": {
+            "dragid": "item5",
+            "value": "Vejlede målgrupperelevant med individuelt fokus, fremme og sikre ungeprogression"
+        },
+        "id3": {
+            "dragid": "item6",
+            "value": "Co-designe og koordinere individuelle forløb i kædeansvaret, inddrage de unge i meddesign, organisere didaktisk"
+        },
+
+        "id4": {
+            "dragid": "item7",
+            "value": "Afklare og afbalancere de professionelles tilgange til de unge"
         }
 
     },
