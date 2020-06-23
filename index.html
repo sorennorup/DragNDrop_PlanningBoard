@@ -21,7 +21,7 @@
         let thisdate = weekday+'-'+month+'-'+year;
 
         if(sessionStorage.getItem('firstload')===null){
-            name = prompt('Indtast dit navn eller kommunenavn','');
+            name = prompt('INDTAST DIT NAVN ELLER KOMMUNENAVN\n\n(Vi gemmer ikke dine profildata. Benyt Chrome, Firefox eller safari)','');
             sessionStorage.setItem('firstload','true');
             sessionStorage.setItem('name',name);
             sessionStorage.setItem('date',thisdate);
@@ -52,7 +52,7 @@
                 <div class="title"><h2 id = "title3">Færdigheder</h2></div>
             </div>
             <div id = "button__wrapper">        
-               <button id = "startover" class = "button">START FORFRA</button>
+               <button id = "button__startover" class = "button">START FORFRA</button>
                 <button id = "button__pdf" class = "button">DOWNLOAD PDF</button>
                 <button id = "button__word" class = "button">DOWNLOAD WORD</button>
             </div>
@@ -76,7 +76,11 @@
           })
           $('#button__pdf').click(function(){      
             pdfMake.createPdf(dd).download();
-    
+          })
+          $('#button__startover').click(function(){
+              sessionStorage.clear();
+              window.location.reload();
+
           })
     
         </script>

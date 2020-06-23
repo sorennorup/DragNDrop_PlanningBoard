@@ -62,15 +62,15 @@ data = {
             "value": "Danne relationer"
         },
         "id6": {
-            "dragid": "item11",
+            "dragid": "item12",
             "value": "Samarbejde på tværs af afdelinger og med forældre"
         },
         "id7": {
-            "dragid": "item12",
+            "dragid": "item13",
             "value": "Omsætte bekendtgørelser"
         },
         "id8": {
-            "dragid": "item13",
+            "dragid": "item14",
             "value": "Håndtere data"
         }
 
@@ -80,27 +80,27 @@ data = {
     {
         
         "id1": {
-            "dragid": "item14",
+            "dragid": "item15",
             "value": "Professionsuddannet, målgrupperelevant efteruddannet"
         },
         "id2": {
-            "dragid": "item15",
+            "dragid": "item16",
             "value": "Følge de professionsetiske standarder"
         },
         "id3": {
-            "dragid": "item16",
+            "dragid": "item17",
             "value": "Forstå egen rolle i forhold til andres roller	"
         },
         "id4": {
-            "dragid": "item17",
+            "dragid": "item18",
             "value": "Beherske metoder til evalueringer og kvalitetssikring"
         },
         "id5": {
-            "dragid": "item18",
+            "dragid": "item19",
             "value" : "Forstå målgruppen, udvise empati"
         },
         "id6": {
-            "dragid": "item19",
+            "dragid": "item20",
             "value" : "Beherske metoder til dokumentation, formidling og it"
         }
 
