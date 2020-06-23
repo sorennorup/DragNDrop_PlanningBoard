@@ -6,7 +6,6 @@ $('document').ready(init);
 	
 function init(){
     
-    
         document.getElementById('drag1').innerHTML = getData(data.block1,data.titles.title1);
         document.getElementById('drag2').innerHTML = getData(data.block2,data.titles.title2);
         document.getElementById('drag3').innerHTML = getData(data.block3,data.titles.title3);

@@ -25,7 +25,6 @@ function getNumItems(arr){
         }
         i++; 
     }
-   
     return [num,resarray];
 }
 
@@ -47,28 +46,31 @@ function storeValuesOnBoard(arr){
     }
 }
 // Adds the stored values to 3 different strings to store in the pdf boxes
-function getSessionStorageValues(){
+function  getSessionStorageValues(filesource){
+    let split;
+    if(filesource == "word"){
+        split = "</br>";
+    }
+    else if (filesource == "pdf")  {
+        split = "\n";
+    }
     var i = 0;
     let values1=""; let values2 = ""; let values3 = "";
     for(key in sessionStorage){
-   
         let num = intIfyId(key);
         let val =sessionStorage.getItem(key);
-        
         if(val!==null){
-           
             if(isInBox(num,numitemsbox1)){  
-            values1+=val+"\n";
+            values1+=val+split;
             }
             else if(isInBox(num,numitemsbox1+numitemsbox2)){
-                values2+=val+"\n";    
+                values2+=val+split;    
             }
             else if(isInBox(num,numitemsbox1+numitemsbox2+numitemsbox3)) {
-                values3+=val+"\n";
+                values3+=val+split;
              }
         }
         i++;
-    
     }
    
     return [values1,values2,values3];
@@ -121,7 +123,7 @@ var dd = {
         },
 
         {
-        text:getSessionStorageValues()[0]+"\n\n",
+        text:getSessionStorageValues("pdf")[0]+"\n\n",
 
         },
 
@@ -132,7 +134,7 @@ var dd = {
         },
 
         {
-        text:getSessionStorageValues()[1]+"\n\n",
+        text:getSessionStorageValues("pdf")[1]+"\n\n",
 
         },
 
@@ -143,7 +145,7 @@ var dd = {
         },
 
         {
-            text:getSessionStorageValues()[2]+"\n\n",
+            text:getSessionStorageValues("pdf")[2]+"\n\n",
 
         }
         
@@ -187,4 +189,33 @@ pdfMake.fonts = {
         bold: 'BarlowSemiCondensed-Medium.ttf',
     }
 };
+document.getElementById('source-html').style.fontFamily = "Verdana";
+document.getElementById('source-html').innerHTML = setHtml(getSessionStorageValues("word"));
+
+
+function setHtml(data) {
+    let header = '<h1>KOMPETENCEPROFIL</h1><span style = "font-size: 1.875rem;">Kontaktperson+ i kædeansvaret</br>'+
+    '</span><span style = "font-size:1.375rem;"> - '+sessionStorage.getItem('name')+'</span>';
+    let knowledge = "<h2>Viden</h2>"+data[0]+"\n";
+    let competences = "<h2>Kompetencer</h2>"+data[1]+"\n";
+    let skills = "<h2>Skills</h2>"+data[2]+"\n";
+    return header+knowledge+competences+skills;
+}
+
+function exportHTML(){
+    var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' "+
+         "xmlns:w='urn:schemas-microsoft-com:office:word' "+
+         "xmlns='http://www.w3.org/TR/REC-html40'>"+
+         "<head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title></head><body>";
+     
+    var footer = "</body></html>";
+    var sourceHTML = header+document.getElementById("source-html").innerHTML+footer;
+    var source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+    var fileDownload = document.createElement("a");
+    document.body.appendChild(fileDownload);
+    fileDownload.href = source;
+    fileDownload.download = 'document.doc';
+    fileDownload.click();
+    document.body.removeChild(fileDownload);
+ }
 

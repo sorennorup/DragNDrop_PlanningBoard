@@ -12,6 +12,7 @@
         <title>Kompetenceprofil</title>
     </head>
     <script>
+        
         let name = "";
         let today = new Date();
         let weekday = today.getDate();
@@ -28,6 +29,8 @@
         
     </script>
     <body>
+        <div style = "display:none" id = "source-html">Tjek om den kommer ind her</div>
+       
         <div id = "wrapper">
       <header id = "header"></header>
       <script>
@@ -39,22 +42,14 @@
          
         <div id = "board-wrapper__upper" class = "board-wrapper">
             <p id = "date"></p>;
-         <script>
-             $('#date').html(sessionStorage.getItem('date'));
-         </script>
             <div id = "done1" class = "board " draggable="true">
-               
                 <div class="title"><h2 id = "title1">Viden</h2></div>
-               
             </div>
-
             <div id = "done2" class = "board" draggable="true">
                 <div class="title"><h2 id = "title2">Kompetencer</h2></div>
             </div>
-          
             <div id = "done3" class = "board" draggable="true">
-                <div class="title"><h2 id = "title3">FÃ¦rdigheder</h2></div>
-              
+                <div class="title"><h2 id = "title3">Færdigheder</h2></div>
             </div>
             <div id = "button__wrapper">        
                <button id = "startover" class = "button">START FORFRA</button>
@@ -74,11 +69,15 @@
       <script src = "src/scripts.js"></script>
       
       <script>
-          
+           $('#date').html(sessionStorage.getItem('date'));
+         
+           $('#button__word').click(function(){
+              exportHTML();
+          })
           $('#button__pdf').click(function(){      
-    pdfMake.createPdf(dd).download();
+            pdfMake.createPdf(dd).download();
     
-  })
+          })
     
         </script>
         </div>
