@@ -19,7 +19,20 @@ data = {
         "id3": {
             "dragid": "item3",
             "value": "Kende metoder for tværprofessionelt samarbejde"
+        },
+        "id4": {
+            "dragid": "item4",
+            "value": "Kende systemet, målgruppen og deres behov"
+        },
+        "id5": {
+            "dragid": "item5",
+            "value": "Reflektere over egen rolle"
+        },
+        "id6": {
+            "dragid": "item6",
+            "value": "Relatiere til lovgivning, datahåndtering, økonmi, m.fl"
         }
+
 
        
     },
@@ -28,21 +41,37 @@ data = {
      { 
        
         "id1": {
-            "dragid": "item4",
+            "dragid": "item7",
             "value": "Opsøge unge, målgruppevurdere, afklare ungeprofiler	"
         },
         "id2": {
-            "dragid": "item5",
+            "dragid": "item8",
             "value": "Vejlede målgrupperelevant med individuelt fokus, fremme og sikre ungeprogression"
         },
         "id3": {
-            "dragid": "item6",
+            "dragid": "item9",
             "value": "Co-designe og koordinere individuelle forløb i kædeansvaret, inddrage de unge i meddesign, organisere didaktisk"
         },
 
         "id4": {
-            "dragid": "item7",
+            "dragid": "item10",
             "value": "Afklare og afbalancere de professionelles tilgange til de unge"
+        },
+        "id5": {
+            "dragid": "item11",
+            "value": "Danne relationer"
+        },
+        "id6": {
+            "dragid": "item11",
+            "value": "Samarbejde på tværs af afdelinger og med forældre"
+        },
+        "id7": {
+            "dragid": "item12",
+            "value": "Omsætte bekendtgørelser"
+        },
+        "id8": {
+            "dragid": "item13",
+            "value": "Håndtere data"
         }
 
     },
@@ -51,24 +80,28 @@ data = {
     {
         
         "id1": {
-            "dragid": "item8",
+            "dragid": "item14",
             "value": "Professionsuddannet, målgrupperelevant efteruddannet"
         },
         "id2": {
-            "dragid": "item9",
+            "dragid": "item15",
             "value": "Følge de professionsetiske standarder"
         },
         "id3": {
-            "dragid": "item10",
+            "dragid": "item16",
             "value": "Forstå egen rolle i forhold til andres roller	"
         },
         "id4": {
-            "dragid": "item11",
+            "dragid": "item17",
             "value": "Beherske metoder til evalueringer og kvalitetssikring"
         },
         "id5": {
-            "dragid": "item12",
-            "value" : "Dette er endnu en tekstbox tilføjet datafilen"
+            "dragid": "item18",
+            "value" : "Forstå målgruppen, udvise empati"
+        },
+        "id6": {
+            "dragid": "item19",
+            "value" : "Beherske metoder til dokumentation, formidling og it"
         }
 
 
