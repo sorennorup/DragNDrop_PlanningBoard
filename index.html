@@ -28,35 +28,43 @@
         
     </script>
     <body>
-        
-      <header id = "header"><h1>Kompetenceprofil for </h1></header>
+        <div id = "wrapper">
+      <header id = "header"></header>
       <script>
-          $('#header').html('<h1>Kompetenceprofil for '+sessionStorage.getItem('name')+'</h1><p>'+sessionStorage.getItem('date')+'</p>');
+          $('#header').html('<h1>KOMPETENCEPROFIL</h1><span style = "font-size: 1.875rem;">Kontaktperson+ i kædeansvaret</br>'+
+            '</span><span style = "font-size:1.375rem;"> - '+sessionStorage.getItem('name')+'</span>');
       </script>
 
       <section id = "content">
          
-        <div class = "board-wrapper">
-            <div id = "done1" class = "board">
-                <div class="title"><h2 id = "title1">Kompetencer</h2></div>
+        <div id = "board-wrapper__upper" class = "board-wrapper">
+            <p id = "date"></p>;
+         <script>
+             $('#date').html(sessionStorage.getItem('date'));
+         </script>
+            <div id = "done1" class = "board " draggable="true">
+               
+                <div class="title"><h2 id = "title1">Viden</h2></div>
+               
             </div>
 
-            <div id = "done2" class = "board">
-                <div class="title"><h2 id = "title2">Viden</h2></div>m
+            <div id = "done2" class = "board" draggable="true">
+                <div class="title"><h2 id = "title2">Kompetencer</h2></div>
             </div>
           
-            <div id = "done3" class = "board">
-                <div class="title"><h2 id = "title3">Færdigheder</h2></div>
-               
+            <div id = "done3" class = "board" draggable="true">
+                <div class="title"><h2 id = "title3">FÃ¦rdigheder</h2></div>
+              
             </div>
             <div id = "button__wrapper">        
                <button id = "startover" class = "button">START FORFRA</button>
-                <button id = "button" class = "button">DOWNLOAD</button>
+                <button id = "button__pdf" class = "button">DOWNLOAD PDF</button>
+                <button id = "button__word" class = "button">DOWNLOAD WORD</button>
             </div>
         </div>
        
-        <div class = "board-wrapper">
-            <div id = "drag1" class = "board drag"></div>
+        <div id = "board-wrapper__lower" class = "board-wrapper">
+            <div id = "drag1"  class = "board drag"></div>
             <div id = "drag2" class = "board drag"></div>
             <div id = "drag3" class = "board drag"></div>
         </div>
@@ -67,15 +75,13 @@
       
       <script>
           
-          $('#button').click(function(){
+          $('#button__pdf').click(function(){      
     pdfMake.createPdf(dd).download();
+    
   })
     
-</script>
-    
-      
-	
-   
+        </script>
+        </div>
     </body>
-    </html>
+</html>
     

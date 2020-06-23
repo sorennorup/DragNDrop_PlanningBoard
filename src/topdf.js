@@ -2,16 +2,12 @@
 let numitemsbox1 = getNumItems(data)[1][0].length+1;
 let numitemsbox2 = getNumItems(data)[1][1].length;
 let numitemsbox3 = getNumItems(data)[1][2].length+1;
-console.log(numitemsbox1);
-console.log(numitemsbox1+numitemsbox2);
-console.log(numitemsbox3);
 
 //Saves items on the done boards
 let sessionArr = getSessionStorageKeys();
-console.log(sessionArr);
+
 dropedValues = getSessionStorageValues();
 storeValuesOnBoard(sessionArr);
-
 
 function getNumItems(arr){
     let resstring=" ";var i= 0;var num= 0;let resarray = [];
@@ -29,13 +25,11 @@ function getNumItems(arr){
         }
         i++; 
     }
-    console.log(num);
+   
     return [num,resarray];
 }
 
 function storeValuesOnBoard(arr){
-
-    //let num1 = getNumItems(arr)[1];
     for(i = 0; i < getNumItems(data)[0];  i++) {
         if(arr[i]!==undefined){
         let id = arr[i];
@@ -62,7 +56,7 @@ function getSessionStorageValues(){
         let val =sessionStorage.getItem(key);
         
         if(val!==null){
-            console.log(key);
+           
             if(isInBox(num,numitemsbox1)){  
             values1+=val+"\n";
             }
@@ -76,7 +70,7 @@ function getSessionStorageValues(){
         i++;
     
     }
-    console.log(values2);
+   
     return [values1,values2,values3];
 }
 
@@ -108,15 +102,20 @@ function getSessionStorageKeys(){
 var dd = {
     content: [
         {
-            text: 'KOMPETENCEPROFIL FOR '+sessionStorage.getItem('name').toUpperCase()+' \n \n',
+            text: 'KOMPETENCEPROFIL',
             style: 'header'
         },
         {
-            text: sessionStorage.getItem('date').toUpperCase()+' \n \n',
+           text: 'Kontaktperson+ i kædeansvaret',
+           style: 'smaller'
         },
+          {
+            text: sessionStorage.getItem('name')+' '+sessionStorage.getItem('date').toUpperCase()+' \n \n \n' ,
+            style: 'smallest'
+          },
 
         {
-			text: 'KOMPETENCER \n',
+			text: 'Viden \n',
             style: 'subheader'
            
         },
@@ -127,7 +126,7 @@ var dd = {
         },
 
         {
-			text: 'VIDEN \n',
+			text: 'Kompetencer\n',
             style: 'subheader'
            
         },
@@ -157,8 +156,16 @@ var dd = {
 
     styles: {
 		header: {
-            fontSize: 25,
+            fontSize: 28,
              
+        },
+
+        smaller: {
+            fontSize: 18,
+        },
+
+        smallest: {
+            fontSize: 14
         },
 
         subheader: {
