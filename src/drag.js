@@ -35,16 +35,15 @@ function getItems(arr){
 }
 
 function setItemsOnDragStart(items) {
-    $(items).bind('dragstart', function(event) {
+    let arg = items.slice(0, -1);
+    $(arg).bind('dragstart', function(event) {
+        console.log(arg);
         event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
         event.originalEvent.dataTransfer.effectAllowed = "move";
         let targetid = event.currentTarget.id;
         var parentel = getParentId(targetid);
-       
     });
-    $(items).bind('dragexit', function(event) {
-        //$("#"+event.currentTarget.id).addClass('drag-enter');
-    });
+  
 }
 
 function getParentId(targetid){
@@ -88,11 +87,12 @@ function dropInArea(areaid,items) {
     $(areaid).bind('drop', function(event) {
         event.originalEvent.dataTransfer.effectAllowed = "copy";
         var notecard = event.originalEvent.dataTransfer.getData("text/plain");
-        window.sessionStorage.setItem(notecard,$('#'+notecard).text());
+
+        window.sessionStorage.setItem(notecard,$("#"+notecard));
         for(var i = 0; i < items.length; i++){
             if(items[i] == notecard)
             event.target.appendChild(document.getElementById(notecard)); 
-            $(notecard).removeClass('drag-enter');
+           
         }
         // Turn off the default behaviour
         // without this, FF will try and go to a URL with your id's name
