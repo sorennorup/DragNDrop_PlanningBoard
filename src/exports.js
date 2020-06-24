@@ -7,7 +7,9 @@ let numitemsbox3 = getNumItems(data)[1][2].length+1;
 //Saves items on the done boards
 let sessionArr = getSessionStorageKeys();
 
-dropedValues = getSessionStorageValues();
+
+let dropedValues = getSessionStorageValues();
+
 storeValuesOnBoard(sessionArr);
 
 function getNumItems(arr){
@@ -49,6 +51,7 @@ function storeValuesOnBoard(arr){
 // Adds the stored values to 3 different strings to store in the pdf boxes
 function getSessionStorageValues(filesource){
     let split;
+   
     if(filesource == "word"){
         split = "</br>";
     }
@@ -58,11 +61,14 @@ function getSessionStorageValues(filesource){
     var i = 0;
     let values1=""; let values2 = ""; let values3 = "";
     for(key in sessionStorage){
+        
         let num = intIfyId(key);
         let val =sessionStorage.getItem(key);
+        
         if(val!==null){
             if(isInBox(num,numitemsbox1)){  
             values1+=val+split;
+            
             }
             else if(isInBox(num,numitemsbox1+numitemsbox2)){
                 values2+=val+split;    
@@ -73,7 +79,6 @@ function getSessionStorageValues(filesource){
         }
         i++;
     }
-   
     return [values1,values2,values3];
 }
 
@@ -109,7 +114,7 @@ var dd = {
             style: 'header'
         },
         {
-           text: 'Kontaktperson+ i kÃ¦deansvaret',
+           text: 'Kontaktperson+ i kædeansvaret',
            style: 'smaller'
         },
           {
