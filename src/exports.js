@@ -1,4 +1,5 @@
 
+// find the number of items in each block
 let numitemsbox1 = getNumItems(data)[1][0].length+1;
 let numitemsbox2 = getNumItems(data)[1][1].length;
 let numitemsbox3 = getNumItems(data)[1][2].length+1;
@@ -27,7 +28,7 @@ function getNumItems(arr){
     }
     return [num,resarray];
 }
-
+// Stores the droped values
 function storeValuesOnBoard(arr){
     for(i = 0; i < getNumItems(data)[0];  i++) {
         if(arr[i]!==undefined){
@@ -46,7 +47,7 @@ function storeValuesOnBoard(arr){
     }
 }
 // Adds the stored values to 3 different strings to store in the pdf boxes
-function  getSessionStorageValues(filesource){
+function getSessionStorageValues(filesource){
     let split;
     if(filesource == "word"){
         split = "</br>";
