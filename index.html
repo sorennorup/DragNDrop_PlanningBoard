@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="style.css">
+       
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         </script>
         <script src =" bootstrap/js/bootstrap.min.js"></script>
@@ -10,28 +10,16 @@
         <link href="jquery-ui.css" rel="stylesheet">
         <script src="src/jquery-ui.js"></script>
         <script src =" src/helpers.js"></script>
-       
+        <link rel="stylesheet" type="text/css" href="style.css">
 		<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:300,400,400i,500,600,700" rel="stylesheet">
 		
         <script src = "pdfmake-master/build/pdfmake.min.js"></script>
         <script type="text/javascript" src="pdfmake-master/build/vfs_fonts.js"></script>
-  
+     
         <title>Kompetenceprofil</title>
     </head>
     <script>
-        let name = "";
-        let today = new Date();
-        let weekday = today.getDate();
-        let month = today.getMonth();
-        let year = today.getFullYear();
-        let thisdate = weekday+'-'+month+'-'+year;
-
-        if(sessionStorage.getItem('firstload')===null){
-            name = prompt('INDTAST DIT NAVN ELLER KOMMUNENAVN\n\n(Vi gemmer ikke dine profildata. Benyt Chrome, Firefox eller safari)','');
-            sessionStorage.setItem('firstload','true');
-            sessionStorage.setItem('name',name);
-            sessionStorage.setItem('date',thisdate);
-        }
+      
         
     </script>
     <body>
@@ -44,22 +32,14 @@
                     <a class="card-header" id="accordion__heading">
                       <h5 class="mb-0">
                         <div id = "collapse-id"  class="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                          OM METODEN
+                          OM PROFILEN
                         </div>
                       </h5>
                   </a>
           
                     <div id="collapseOne" class="collapse hide" aria-labelledby="accordion__heading" data-parent="#accordion">
                       <div id = 'accordion__body' class="card-body">
-                          <p>Her kan du lave et aktuelt billede af din erhvervsparathed. Når du har besvaret en række spørgsmål i 6 blokke, resulterer dine svar i et billede. Billedet minder om en radar eller et spindelvæv.</p>
-          
-                          <p>Erhvervsparathed er dine kompetencer og dine potentialer for at starte og holde fast i et job eller i praktik. Det gælder også, når du tænker på at starte på en erhvervsuddannelse eller er igang med den.</p>
-          
-                          <p>Billedet gælder kun dig selv og kun for den situation, som du befinder dig i lige nu. Du kan altid udvikle dig videre og ændre din situation. </p>
-          
-                          <p>Det tager ca. 20 minutter. Dine svar bliver ikke gemt, og de bliver ikke givet videre til andre. Men du kan udskrive billedet og svarene, hvis du vil.</p>
-          
-                          <span>For professionelle: Læs mere i <a style = "color: #5593c2" href = "TOOL-Erhvervsparathed2020-april.pdf" target = "_blank"> Guide for anvendelse.</a></span>
+                         
                       </div>
                     </div>
                   </div>
@@ -68,19 +48,16 @@
       <header id = "header"></header>
      
     <script>
-    $('#accordion').on('hidden.bs.collapse', removeBackground);
-    $('#accordion').on('shown.bs.collapse', addBackground);
-    $('#collapse-id').addClass('accordion__plussign');
+    
 </script>
       <script>
-          $('#header').html('<h1>KOMPETENCEPROFIL</h1><span style = "font-size: 1.875rem;">Kontaktperson+ i kædeansvaret</br>'+
-            '</span><span style = "font-size:1.375rem;"> - '+sessionStorage.getItem('name')+'</span>');
+         
       </script>
 
       <section id = "content">
          
         <div id = "board-wrapper__upper" class = "board-wrapper">
-            <p id = "date"></p>;
+            <p id = "date"></p>
             <div id = "done1" class = "board " draggable="true">
                 <div class="title"><h2 id = "title1">Viden</h2></div>
             </div>
@@ -104,23 +81,11 @@
         </div>
           
       </section>
-      <script type="text/javascript" src="src/data.js"></script>
-      <script src = "src/scripts.js"></script>
       
+      <script type="text/javascript" src="src/data.js"></script>
+      <script src="src/drag.js"></script>
+      <script src = "src/scripts.js"></script>
       <script>
-           $('#date').html(sessionStorage.getItem('date'));
-         
-           $('#button__word').click(function(){
-              exportHTML();
-          })
-          $('#button__pdf').click(function(){      
-            pdfMake.createPdf(dd).download();
-          })
-          $('#button__startover').click(function(){
-              sessionStorage.clear();
-              window.location.reload();
-          })
-    
         </script>
         </div>
     </body>

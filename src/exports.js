@@ -1,16 +1,13 @@
 
+
 // find the number of items in each block
 let numitemsbox1 = getNumItems(data)[1][0].length+1;
 let numitemsbox2 = getNumItems(data)[1][1].length;
 let numitemsbox3 = getNumItems(data)[1][2].length+1;
 
 //Saves items on the done boards
-let sessionArr = getSessionStorageKeys();
-
-
 let dropedValues = getSessionStorageValues();
 
-storeValuesOnBoard(sessionArr);
 
 function getNumItems(arr){
     let resstring=" ";var i= 0;var num= 0;let resarray = [];
@@ -30,9 +27,11 @@ function getNumItems(arr){
     }
     return [num,resarray];
 }
+
 // Stores the droped values
-function storeValuesOnBoard(arr){
-    for(i = 0; i < getNumItems(data)[0];  i++) {
+(function storeValuesOnBoard(arr){
+    let l = getNumItems(data)[0];
+    for(i = 0; i < l;  i++) {
         if(arr[i]!==undefined){
         let id = arr[i];
         let num = intIfyId(arr[i]);
@@ -47,7 +46,7 @@ function storeValuesOnBoard(arr){
         }
         }
     }
-}
+})(getSessionStorageKeys());
 // Adds the stored values to 3 different strings to store in the pdf boxes
 function getSessionStorageValues(filesource){
     let split;
@@ -114,7 +113,7 @@ var dd = {
             style: 'header'
         },
         {
-           text: 'Kontaktperson+ i kædeansvaret',
+           text: 'Kontaktperson+ i kÃ¦deansvaret',
            style: 'smaller'
         },
           {
@@ -224,4 +223,3 @@ function exportHTML(){
     fileDownload.click();
     document.body.removeChild(fileDownload);
  }
-

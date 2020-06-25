@@ -63,7 +63,8 @@ function getItemsForDraggable(blockobj) {
 }
  // bind the dragover event on the board sections
 function createDraggableArea(areaid, items){
-    for(var i = 0; i < areaid.length; i++){
+    let areasnum = areaid.length;
+    for(var i = 0; i < areasnum; i++){ 
         dragOver(areaid[i])
         dropInArea(areaid[i],items);
     }   
@@ -86,14 +87,15 @@ function dropBack(areaId){
 }
  // bind the drop event on the board sections
 function dropInArea(areaid,items) {
+    let itemslength = items.length;
     $(areaid).bind('drop', function(event) {
         event.originalEvent.dataTransfer.effectAllowed = "copy";
         var notecard = event.originalEvent.dataTransfer.getData("text/plain");
         window.sessionStorage.setItem(notecard,$('#'+notecard).text());
-        for(var i = 0; i < items.length; i++){
+        for(var i = 0; i < itemslength; i++){
             if(items[i] == notecard)
             event.target.appendChild(document.getElementById(notecard)); 
-            $(notecard).removeClass('drag-enter');
+            
         }
         // Turn off the default behaviour
         // without this, FF will try and go to a URL with your id's name

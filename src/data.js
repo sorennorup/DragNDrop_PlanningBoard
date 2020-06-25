@@ -106,6 +106,17 @@ data = {
 
 
 
-    }
+    },
+    "boxtext": "<p>Formålet med kompetenceprofilen for Kontaktperson+ er at give kommuner og kontaktpersoner i rammerne af de kommunale ungeindsatser (KUI) et værktøj for at konstruere hhv. at reflektere over deres egen lokale model for kontaktpersonen.</p>"+
+
+    '<p>Den generiske profil er en ambitiøs omsætning af profilen for kommunernes obligatoriske kontaktpersoner. Profilen omfatter additivt intensiv vejledning af udsatte unge i alle faser af deres individuelle forløb, i et tværprofessionelt og tværsektorielt kædeansvar med aktører også uden for KUI.</p> '+
+    
+    "<p>OBS: Programmet gemmer ikke data, men brugerne kan downlaode for at gemme lokalt. Den lokale model kan viderebearbejdes ved at benytte funktionen Download til Word.</p> "+
+    
+    
+    
+    "<p>Profilen er udviklet i rammerne af projektet Youth in transition (2018-2021), med bidrag fra projekterne Unge med kant Syddanmark (2018-2020) og Unge med kant Hovedstaden (2019-2022).</p>"+
+    
+    "<p>For baggrund, faglig forankring og praksiseksempler, <a href = 'https://ungemedkant.dk/toolbox/kontaktperson/'>se her.</a></p>"
 
 }
