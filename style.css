@@ -46,16 +46,16 @@ h3 {
 
 .profile__header1{
     transform: rotate(90deg);
-    margin-left: -125px;
+    margin-left: -105px;
     position: absolute;
-    margin-top: 55px;
+    margin-top: 33px;
 }
 
 .profile__header2{
     transform: rotate(90deg);
-    margin-left: -105px;
+    margin-left: -125px;
     position: absolute;  
-    margin-top: 35px;
+    margin-top: 55px;
     color:#d9d9d9 !important;
     font-size: 30px;
     font-stretch: expanded;
@@ -204,7 +204,7 @@ button:focus { outline:0 !important; }
     max-width: 968px;
     background:#3a3a3c ;
     height: calc(100%+300px);
-    min-height: 200px;
+    min-height: 300px;
     display: flex;	
     margin: 20px auto;
     color: #f3f3f3;

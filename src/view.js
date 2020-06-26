@@ -27,8 +27,7 @@
     
     $(window).load(function(){
         let element = $("#board-wrapper__upper");
-        let elementheight = element.height()+50;
-        
+        let elementheight = element.height()+70;
         element.height(elementheight.toString()+"px");
          
         
