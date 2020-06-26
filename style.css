@@ -66,9 +66,6 @@ h3 {
     font-size: 30px;
 }
 
-
-
-
 .cardTitle {
     font-family:"Barlow Semi Condensed",sans-serif;
 }
@@ -207,7 +204,7 @@ button:focus { outline:0 !important; }
     max-width: 968px;
     background:#3a3a3c ;
     height: calc(100%+300px);
-    min-height: 300px;
+    min-height: 200px;
     display: flex;	
     margin: 20px auto;
     color: #f3f3f3;

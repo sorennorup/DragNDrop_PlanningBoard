@@ -8,7 +8,9 @@ dropBack('#drag1'); dropBack('#drag2'); dropBack('#drag3');
 
 document.addEventListener("dragenter", function(event) {
     if(event.target.id == "board-wrapper__upper") {
-        this.getElementById("board-wrapper__upper").style.border = "dotted";
+        let cont = this.getElementById("board-wrapper__upper");
+        let contheight = cont.offsetHeight+50;
+        cont.style.border = "dotted";
     }
 }); 
 
