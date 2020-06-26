@@ -8,7 +8,7 @@
 
     (function setNameAndDate() {
         if(sessionStorage.getItem('firstload')===null){
-            name = prompt('INDTAST DIT NAVN ELLER KOMMUNENAVN\n\n(Vi gemmer ikke dine profildata. Benyt Chrome, Firefox eller safari)','');
+            name = prompt('INDTAST DIT NAVN ELLER KOMMUNENAVN\n\n Vi gemmer ikke dine profildata. Benyt Chrome, Firefox eller safari','');
             sessionStorage.setItem('firstload','true');
             sessionStorage.setItem('name',name);
             sessionStorage.setItem('date',thisdate);
