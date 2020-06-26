@@ -165,9 +165,11 @@ h3 {
     background-color: #fff;
     color: #3a3a3c;
 };
-.button:active {
+button:active {
     border: none;
 }
+
+button:focus { outline:0 !important; }
 
 .button:last-child {
     margin-right: 0px;
