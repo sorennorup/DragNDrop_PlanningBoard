@@ -25,6 +25,15 @@
         $("#accordion__body").html(data.boxtext);
     })();
     
+    $(window).load(function(){
+        let element = $("#board-wrapper__upper");
+        let elementheight = element.height()+50;
+        
+        element.height(elementheight.toString()+"px");
+         
+        
+    });
+    
     $('#accordion').on('hidden.bs.collapse', removeBackground);
     $('#accordion').on('shown.bs.collapse', addBackground);
     $('#collapse-id').addClass('accordion__plussign');
