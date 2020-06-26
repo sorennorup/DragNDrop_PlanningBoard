@@ -117,6 +117,6 @@ data = {
     
     "<p>Profilen er udviklet i rammerne af projektet Youth in transition (2018-2021), med bidrag fra projekterne Unge med kant Syddanmark (2018-2020) og Unge med kant Hovedstaden (2019-2022).</p>"+
     
-    "<p>For model af kompetenceprofil og eksempler fra praksis, se her, <a href = 'https://ungemedkant.dk/toolbox/kontaktperson/'>se her.</a></p>"
+    "<p>For model af kompetenceprofil og eksempler fra praksis, <a href = 'https://ungemedkant.dk/toolbox/kontaktperson/'>se her.</a></p>"
 
 }

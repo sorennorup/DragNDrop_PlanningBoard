@@ -97,7 +97,8 @@ h3 {
 	background: #d9d9d9;
     height: 44px;
     position: absolute;
-	right: 0;
+    right: 0;
+    cursor: pointer;
 }
 
 #accordion_heading:visited {
@@ -165,6 +166,7 @@ h3 {
     background-color: #fff;
     color: #3a3a3c;
 };
+
 button:active {
     border: none;
 }
