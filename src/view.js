@@ -41,6 +41,7 @@
           })
           $('#button__startover').click(function(){
               sessionStorage.clear();
+              window.location.reload();
           })
 
 })();
